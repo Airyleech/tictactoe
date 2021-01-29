@@ -1,0 +1,104 @@
+theBoard = {'tl': '-','tm': '-','tr': '-','ml': '-','mm': '-','mr': '-','bl': '-','bm': '-','br': '-'}
+def look():
+    print(theBoard['tl'] + ' ___ ' + theBoard['tm'] + ' ___ ' + theBoard['tr'])
+    print(theBoard['ml'] + ' ___ ' + theBoard['mm'] + ' ___ ' + theBoard['mr'])
+    print(theBoard['bl'] + ' ___ ' + theBoard['bm'] + ' ___ ' + theBoard['br'])
+
+def x_turn():
+    print('It is the turn of: X')
+    move = input()
+    theBoard[move] = 'X'
+    look()
+    x_win()
+    x_fix()
+    o_turn()
+
+def o_turn():
+    print('It is the turn of: O')
+    move = input()
+    theBoard[move] = 'O'
+    look()
+    o_win()
+    o_fix()
+    x_turn()
+
+def x_win():
+    if theBoard['tl'] == 'X':
+        if theBoard['tm'] == 'X':
+            if theBoard['tr'] == 'X':
+                print('X won!')
+                input()
+        elif theBoard['ml'] == 'X':
+            if theBoard['bl'] == 'X':
+                print('X won!')
+                input()
+        elif theBoard['mm'] == 'X':
+            if theBoard['br'] == 'X':
+                print('X won!')
+                input()
+    elif theBoard['bl'] == 'X':
+        if theBoard['bm'] == 'X':
+            if theBoard['br'] == 'X':
+                print('X won!')
+                input()
+    elif theBoard['tr'] == 'X':
+        if theBoard['mr'] == 'X':
+            if theBoard['br'] == 'X':
+                print('X won!')
+                input()
+        elif theBoard['mm'] == 'O':
+            if theBoard['bl'] == 'O':
+                print('O won!')
+                input()
+
+def o_win():
+    if theBoard['tl'] == 'O':
+        if theBoard['tm'] == 'O':
+            if theBoard['tr'] == 'O':
+                print('O won!')
+                input()
+        elif theBoard['ml'] == 'O':
+            if theBoard['bl'] == 'O':
+                print('O won!')
+                input()
+        elif theBoard['mm'] == 'O':
+            if theBoard['br'] == 'O':
+                print('O won!')
+                input()
+    elif theBoard['bl'] == 'O':
+        if theBoard['bm'] == 'O':
+            if theBoard['br'] == 'O':
+                print('O won!')
+                input()
+    elif theBoard['tr'] == 'O':
+        if theBoard['mr'] == 'O':
+            if theBoard['br'] == 'O':
+                print('O won!')
+                input()
+
+def o_fix():
+    if theBoard['tr'] == 'O':
+        if theBoard['mm'] == 'O':
+            if theBoard['bl'] == 'O':
+                print('O won!')
+                input()
+    if theBoard['tm'] == 'O':
+        if theBoard['mm'] == 'O':
+            if theBoard['bm'] == 'O':
+                print('O won!')
+                input()
+
+def x_fix():
+    if theBoard['tr'] == 'X':
+        if theBoard['mm'] == 'X':
+            if theBoard['bl'] == 'X':
+                print('X won!')
+                input()
+    if theBoard['tm'] == 'X':
+        if theBoard['mm'] == 'X':
+            if theBoard['bm'] == 'X':
+                print('X won!')
+                input()
+
+look()
+x_turn()
